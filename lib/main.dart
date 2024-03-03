@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:t_store/features/authentication/screens/login/login.dart';
-import 'package:t_store/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:t_store/features/shop/screens/home/home.dart';
 import 'package:t_store/utils/theme/theme.dart';
 
 void main() {
@@ -20,10 +19,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      home: const LoginScreen(),
+      home: const HomeScreen(),
     );
   }
 }
