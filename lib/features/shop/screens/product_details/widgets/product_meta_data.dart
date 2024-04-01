@@ -87,10 +87,11 @@ class TProductMetaData extends StatelessWidget {
         Row(
           children: [
             TCircularImage(
-              image: TImages.cosmeticsIcon,
+              image: TImages.nikeLogo,
               height: 32,
               width: 32,
               overlayColor: dark ? TColors.white : TColors.black,
+              backgroundColor: Colors.transparent,
             ),
             const TBrandTitileWithVerification(
               title: "Nike",
