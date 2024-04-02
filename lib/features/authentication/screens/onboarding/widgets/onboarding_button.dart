@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/features/authentication/controllers/onboarding_controllers.dart';
 import 'package:t_store/utils/constants/colors.dart';
+import 'package:t_store/utils/constants/sizes.dart';
+import 'package:t_store/utils/device/device_utilities.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
 class OnBoardingButton extends StatelessWidget {
@@ -14,12 +16,14 @@ class OnBoardingButton extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return Positioned(
+        bottom: TDeviceUtils.getBottomNavigationBarHeight(),
+        right: TSizes.defaultSpace,
         child: ElevatedButton(
-      onPressed: () => OnBoardingController.instance.nextPage(),
-      style: ElevatedButton.styleFrom(
-          shape: const CircleBorder(),
-          backgroundColor: dark ? TColors.primary : TColors.dark),
-      child: const Icon(Iconsax.arrow_right_3),
-    ));
+          onPressed: () => OnBoardingController.instance.nextPage(),
+          style: ElevatedButton.styleFrom(
+              shape: const CircleBorder(),
+              backgroundColor: dark ? TColors.primary : TColors.dark),
+          child: const Icon(Iconsax.arrow_right_3),
+        ));
   }
 }

@@ -50,7 +50,7 @@ class TBrandCard extends StatelessWidget {
                     height: TSizes.spaceBtwItems / 2,
                   ),
                   Text(
-                    "250 Product and some are in old stock",
+                    "250 Product",
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelMedium,
                   )

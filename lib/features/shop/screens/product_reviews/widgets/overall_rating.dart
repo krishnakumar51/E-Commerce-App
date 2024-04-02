@@ -1,11 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:t_store/commmon/widgets/products/ratings/product_rating_indicator.dart';
 import 'package:t_store/features/shop/screens/product_reviews/widgets/rating_progress_indicator.dart';
-import 'package:t_store/utils/constants/colors.dart';
 
 class TOverallProductRating extends StatelessWidget {
   const TOverallProductRating({
@@ -19,6 +14,7 @@ class TOverallProductRating extends StatelessWidget {
         Expanded(
           flex: 3,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "4.6",
@@ -28,7 +24,7 @@ class TOverallProductRating extends StatelessWidget {
                 rating: 4.6,
               ),
               Text(
-                "(1,204)",
+                "  1,204",
                 style: Theme.of(context).textTheme.bodySmall,
               )
             ],

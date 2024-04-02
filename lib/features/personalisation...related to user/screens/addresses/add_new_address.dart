@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/commmon/widgets/appbar/appbar.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -106,7 +104,7 @@ class AddNewAddressScreen extends StatelessWidget {
                 SizedBox(
                     width: double.infinity,
                     child:
-                        ElevatedButton(onPressed: () {}, child: Text("Save")))
+                        ElevatedButton(onPressed: () {}, child: const Text("Save")))
               ],
             ),
           ),

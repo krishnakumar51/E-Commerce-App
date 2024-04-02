@@ -1,15 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
-import 'package:t_store/commmon/widgets/appbar/appbar.dart';
-import 'package:t_store/commmon/widgets/cutom_shapes/containers/circular_container.dart';
-import 'package:t_store/commmon/widgets/cutom_shapes/curved_edges/curved_edges_widget.dart';
-import 'package:t_store/commmon/widgets/icons/circular_icon.dart';
-import 'package:t_store/commmon/widgets/images/rounded_images.dart';
 import 'package:t_store/commmon/widgets/texts/section_heading.dart';
 import 'package:t_store/features/shop/screens/product_details/widgets/bottom_add_to_cart.dart';
 import 'package:t_store/features/shop/screens/product_details/widgets/product_attributes.dart';
@@ -17,8 +9,6 @@ import 'package:t_store/features/shop/screens/product_details/widgets/product_de
 import 'package:t_store/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:t_store/features/shop/screens/product_details/widgets/rating_and_share.dart';
 import 'package:t_store/features/shop/screens/product_reviews/product_reviews.dart';
-import 'package:t_store/features/shop/screens/product_reviews/widgets/user_review_card.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 

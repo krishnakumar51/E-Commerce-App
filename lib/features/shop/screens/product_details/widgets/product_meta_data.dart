@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:t_store/commmon/widgets/cutom_shapes/containers/circular_container.dart';
 import 'package:t_store/commmon/widgets/cutom_shapes/containers/rounded_container.dart';
 import 'package:t_store/commmon/widgets/images/circular_image.dart';
 import 'package:t_store/commmon/widgets/texts/brand_title_with_verfication.dart';

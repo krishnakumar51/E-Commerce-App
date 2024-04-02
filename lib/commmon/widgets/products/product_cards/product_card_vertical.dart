@@ -33,16 +33,20 @@ class TProductCardvertical extends StatelessWidget {
         ),
         child: Column(
           children: [
+            // thumbnail, wishlist, dicount tag
             TRoundedContainer(
               height: 180,
               padding: const EdgeInsets.all(TSizes.sm),
               backgroundColor: dark ? TColors.dark : TColors.light,
               child: Stack(
                 children: [
+                  // thumbnail image
                   const TRoundedImage(
                     imgUrl: TImages.productImage1,
                     applyImageRadius: true,
                   ),
+
+                  // sale tag
                   Positioned(
                     top: 12,
                     child: TRoundedContainer(
@@ -56,6 +60,8 @@ class TProductCardvertical extends StatelessWidget {
                               )),
                     ),
                   ),
+
+                  // favourite icon button
                   const Positioned(
                     top: 0,
                     right: 0,
@@ -99,6 +105,8 @@ class TProductCardvertical extends StatelessWidget {
                     price: '35.5',
                   ),
                 ),
+
+                // add to cart
                 Container(
                   decoration: const BoxDecoration(
                       color: TColors.dark,
@@ -114,7 +122,7 @@ class TProductCardvertical extends StatelessWidget {
                         Iconsax.add,
                         color: TColors.white,
                       ))),
-                )
+                ),
               ],
             )
           ],
