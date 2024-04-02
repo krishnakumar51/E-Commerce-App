@@ -8,6 +8,7 @@ import 'package:t_store/commmon/widgets/products/products_cart/cart_menu_icon.da
 import 'package:t_store/commmon/widgets/texts/section_heading.dart';
 import 'package:t_store/commmon/widgets/brand/store_barnd_card.dart';
 import 'package:t_store/features/shop/screens/brands/all_brands.dart';
+import 'package:t_store/features/shop/screens/brands/brand_products.dart';
 import 'package:t_store/features/shop/screens/store/widgets/store_category_tab.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -30,6 +31,7 @@ class StoreScreen extends StatelessWidget {
           ),
           actions: [
             TCartCounterIcon(
+              iconColor: dark ? TColors.white : TColors.black,
               onPressed: () {},
             ),
           ],
@@ -76,8 +78,9 @@ class StoreScreen extends StatelessWidget {
                           itemCount: 4,
                           mainAxisExtent: 90,
                           itemBuilder: (_, index) {
-                            return const TBrandCard(
+                            return TBrandCard(
                               showBorder: true,
+                              ontap: () => Get.to(() => const BrandProducts()),
                             );
                           })
                     ],
