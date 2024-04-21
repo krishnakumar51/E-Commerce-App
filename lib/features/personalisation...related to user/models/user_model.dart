@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:t_store/utils/formatters/formatter.dart';
 
 class UserModel {
@@ -46,30 +47,33 @@ class UserModel {
       profilePicture: "");
 
   // convert model to json format
-  Map<String, dynamic> toJson() => {
-        "FirstName": firstName,
-        "LastName": lastName,
-        "UserName": userName,
-        "Email": email,
-        "PhoneNumber": phoneNumber,
-        "ProfilePicture": profilePicture,
-      };
+  Map<String, dynamic> toJson() {
+    return {
+      "FirstName": firstName,
+      "LastName": lastName,
+      "UserName": userName,
+      "Email": email,
+      "PhoneNumber": phoneNumber,
+      "ProfilePicture": profilePicture,
+    };
+  }
 
   // factory method to create a new UserModel from a firebase document snapshot
-  // factory UserModel.fromSnapshot(
-  //     DocumentSnapshot<Map<String, dynamic>> document) {
-  //   if (document.data() != null) {
-  //     final data = document.data()!;
-  //     return UserModel(
-  //       id: document.id,
-  //       firstName: data['FirstName'] ?? "",
-  //       lastName: data["LastName"] ?? "",
-  //       userName: data["UserName"] ?? "",
-  //       email: data["Email"] ?? "",
-  //       phoneNumber: data["PhoneNumber"] ?? "",
-  //       profilePicture: data["ProfilePicture"] ?? "",
-  //     );
-  //   }
-
-  // }
+  factory UserModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> document) {
+    if (document.data() != null) {
+      final data = document.data()!;
+      return UserModel(
+        id: document.id,
+        firstName: data['FirstName'] ?? "",
+        lastName: data["LastName"] ?? "",
+        userName: data["UserName"] ?? "",
+        email: data["Email"] ?? "",
+        phoneNumber: data["PhoneNumber"] ?? "",
+        profilePicture: data["ProfilePicture"] ?? "",
+      );
+    } else {
+      return UserModel.empty();
+    }
+  }
 }

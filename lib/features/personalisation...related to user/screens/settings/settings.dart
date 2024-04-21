@@ -6,6 +6,7 @@ import 'package:t_store/commmon/widgets/cutom_shapes/containers/primary_header_c
 import 'package:t_store/commmon/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:t_store/commmon/widgets/list_tiles/user_profile_tile.dart';
 import 'package:t_store/commmon/widgets/texts/section_heading.dart';
+import 'package:t_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:t_store/features/personalisation...related%20to%20user/screens/addresses/address.dart';
 import 'package:t_store/features/personalisation...related%20to%20user/screens/profile/profile.dart';
 import 'package:t_store/features/shop/screens/order/order.dart';
@@ -17,6 +18,8 @@ class SettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(AuthenticationRepository());
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -152,7 +155,7 @@ class SettingScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () => controller.logout(),
                       child: const Text("Logout"),
                     ),
                   ),

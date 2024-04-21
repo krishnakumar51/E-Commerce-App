@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/commmon/widgets/appbar/appbar.dart';
 import 'package:t_store/commmon/widgets/images/circular_image.dart';
 import 'package:t_store/commmon/widgets/texts/section_heading.dart';
+import 'package:t_store/features/personalisation...related%20to%20user/controllers/user_controllers.dart';
+import 'package:t_store/features/personalisation...related%20to%20user/screens/profile/widgets/change_name.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
@@ -13,6 +16,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
+
     return Scaffold(
       appBar: const TAppBar(
         title: Text("Profile"),
@@ -59,9 +64,14 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBtwItems),
 
               TProfileMenu(
-                  title: 'Name', value: 'Krishna Kumar', onPressed: () {}),
+                  title: 'Name',
+                  value: controller.user.value.fullName,
+                  onPressed: () => Get.to(() =>
+                      const ChangeNameScreen())), //Get.to(()=> const ChangeName())
               TProfileMenu(
-                  title: 'Username', value: 'g51_krishna', onPressed: () {}),
+                  title: 'Username',
+                  value: controller.user.value.userName,
+                  onPressed: () {}),
 
               const SizedBox(
                 height: TSizes.spaceBtwItems,
@@ -78,15 +88,20 @@ class ProfileScreen extends StatelessWidget {
 
               TProfileMenu(
                 title: 'User ID',
-                value: '6846445',
+                value: controller.user.value.id,
                 onPressed: () {},
                 icon: Iconsax.copy,
               ),
               TProfileMenu(
                   title: 'E-mail',
-                  value: 'krishna@gmail.com',
+                  value: controller.user.value.email,
+                  onPressed: () {}),
+              TProfileMenu(
+                  title: 'Phone Number',
+                  value: controller.user.value.phoneNumber,
                   onPressed: () {}),
               TProfileMenu(title: 'Gender', value: 'Male', onPressed: () {}),
+
               TProfileMenu(
                   title: 'Date of Birth',
                   value: '09 Sep 2003',
