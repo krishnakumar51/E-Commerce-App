@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/commmon/widgets/appbar/appbar.dart';
+import 'package:t_store/features/personalisation...related%20to%20user/controllers/update_name_controller.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 import 'package:t_store/utils/validators/validation.dart';
@@ -10,7 +12,7 @@ class ChangeNameScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final controller =
+    final controller = Get.put(UpdateNameController());
     return Scaffold(
         appBar: TAppBar(
           showBackArrow: true,
@@ -36,11 +38,11 @@ class ChangeNameScreen extends StatelessWidget {
 
               // text feild and bvuttons
               Form(
-                // key: ,
+                key: controller.updateUserNameFormKey,
                 child: Column(
                   children: [
                     TextFormField(
-                      // controller: ,
+                      controller: controller.firstName,
                       validator: (value) =>
                           TValidator.validateEmptyText("First Name", value),
                       expands: false,
@@ -52,7 +54,7 @@ class ChangeNameScreen extends StatelessWidget {
                       height: TSizes.spaceBtwInputFields,
                     ),
                     TextFormField(
-                      // controller: ,
+                      controller: controller.lastName,
                       validator: (value) =>
                           TValidator.validateEmptyText("Last Name", value),
                       expands: false,
@@ -71,7 +73,7 @@ class ChangeNameScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => controller.updateUserName(),
                   child: const Text("Save"),
                 ),
               )

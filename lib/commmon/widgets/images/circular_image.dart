@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -27,20 +28,34 @@ class TCircularImage extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return Container(
-      width: width,
-      height: height,
-      padding: EdgeInsets.all(padding),
-      decoration: BoxDecoration(
-        color: backgroundColor ?? (dark ? TColors.black : TColors.white),
-        borderRadius: BorderRadius.circular(100),
-      ),
-      child: Image(
-        fit: fit,
-        image: isNetworkImage
-            ? NetworkImage(image)
-            : AssetImage(image) as ImageProvider,
-        color: overlayColor ?? (dark ? TColors.white : TColors.dark),
-      ),
-    );
+        width: width,
+        height: height,
+        padding: EdgeInsets.all(padding),
+        decoration: BoxDecoration(
+          color: backgroundColor ?? (dark ? TColors.black : TColors.white),
+          borderRadius: BorderRadius.circular(100),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(100),
+          child: Center(
+            child: isNetworkImage
+                ? CachedNetworkImage(
+                    fit: fit,
+                    imageUrl: image,
+                    color: overlayColor,
+                    // progressIndicatorBuilder: ,,      ,,,,,,need the shimmer file
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                  )
+                : Image(
+                    fit: fit,
+                    image: isNetworkImage
+                        ? NetworkImage(image)
+                        : AssetImage(image) as ImageProvider,
+                    color:
+                        overlayColor ?? (dark ? TColors.white : TColors.dark),
+                  ),
+          ),
+        ));
   }
 }

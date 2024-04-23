@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:t_store/commmon/widgets/appbar/appbar.dart';
 import 'package:t_store/commmon/widgets/products/products_cart/cart_menu_icon.dart';
 import 'package:t_store/features/personalisation...related%20to%20user/controllers/user_controllers.dart';

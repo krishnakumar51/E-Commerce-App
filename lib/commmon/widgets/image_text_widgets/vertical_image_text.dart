@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:t_store/commmon/widgets/images/circular_image.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
@@ -11,10 +12,12 @@ class TVerticalImageText extends StatelessWidget {
     required this.title,
     required this.image,
     this.onTap,
+    this.isNetworkImage = true,
   });
 
   final Color? textColor;
   final Color? backgroundColor;
+  final bool isNetworkImage;
   final String title, image;
   final VoidCallback? onTap;
 
@@ -27,21 +30,29 @@ class TVerticalImageText extends StatelessWidget {
         padding: const EdgeInsets.only(right: TSizes.spaceBtwItems),
         child: Column(
           children: [
-            Container(
-              width: 56,
-              height: 56,
-              padding: const EdgeInsets.all(TSizes.sm),
-              decoration: BoxDecoration(
-                color:
-                    backgroundColor ?? (dark ? TColors.black : TColors.white),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Center(
-                  child: Image(
-                image: AssetImage(image),
-                fit: BoxFit.cover,
-                color: (dark ? TColors.light : TColors.dark),
-              )),
+            // Container(
+            //   width: 56,
+            //   height: 56,
+            //   padding: const EdgeInsets.all(TSizes.sm),
+            //   decoration: BoxDecoration(
+            //     color:
+            //         backgroundColor ?? (dark ? TColors.black : TColors.white),
+            //     borderRadius: BorderRadius.circular(100),
+            //   ),
+            //   child: Center(
+            //       child: Image(
+            //     image: AssetImage(image),
+            //     fit: BoxFit.cover,
+            //     color: (dark ? TColors.light : TColors.dark),
+            //   )),
+            // ),
+            TCircularImage(
+              image: image,
+              fit: BoxFit.fitWidth,
+              padding: TSizes.sm * 1.4,
+              isNetworkImage: isNetworkImage,
+              backgroundColor: backgroundColor,
+              overlayColor: dark ? TColors.light : TColors.dark,
             ),
             const SizedBox(
               height: TSizes.spaceBtwItems / 2,

@@ -7,6 +7,7 @@ import 'package:t_store/commmon/widgets/layouts/grid_layout.dart';
 import 'package:t_store/commmon/widgets/products/products_cart/cart_menu_icon.dart';
 import 'package:t_store/commmon/widgets/texts/section_heading.dart';
 import 'package:t_store/commmon/widgets/brand/store_barnd_card.dart';
+import 'package:t_store/features/shop/controllers/category_controller.dart';
 import 'package:t_store/features/shop/screens/brands/all_brands.dart';
 import 'package:t_store/features/shop/screens/brands/brand_products.dart';
 import 'package:t_store/features/shop/screens/store/widgets/store_category_tab.dart';
@@ -20,9 +21,10 @@ class StoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
+    final categories = CategoryController.instace.featuredCategories;
 
     return DefaultTabController(
-      length: 6,
+      length: categories.length,
       child: Scaffold(
         appBar: TAppBar(
           title: Text(
@@ -86,40 +88,25 @@ class StoreScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                bottom: const TTabBar(
-                  tabs: [
-                    Tab(
-                      child: Text("Sports"),
-                    ),
-                    Tab(
-                      child: Text("Furniture"),
-                    ),
-                    Tab(
-                      child: Text("Electornics"),
-                    ),
-                    Tab(
-                      child: Text("Clothes"),
-                    ),
-                    Tab(
-                      child: Text("Cosmetics"),
-                    ),
-                    Tab(
-                      child: Text("Miscellaneous"),
-                    ),
-                  ],
+                bottom: TTabBar(
+                  tabs: categories
+                      .map((category) => Tab(
+                            child: Text(category.name),
+                          ))
+                      .toList(),
                 ),
               )
             ];
           },
-          body: const TabBarView(children: [
-            // as many types as there in tab bar
-            TCategoryTab(),
-            TCategoryTab(),
-            TCategoryTab(),
-            TCategoryTab(),
-            TCategoryTab(),
-            TCategoryTab(),
-          ]),
+          body: TabBarView(
+            children:
+                // as many types as there in tab bar
+                categories
+                    .map((category) => TCategoryTab(
+                          category: category,
+                        ))
+                    .toList(),
+          ),
         ),
       ),
     );
