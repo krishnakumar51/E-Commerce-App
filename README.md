@@ -47,13 +47,4 @@ This Flutter project is an E-Commerce platform that utilizes the powerful GetX s
 - Sign up or log in with your credentials to access the app's features.
 - Browse through available products, add them to your cart, and proceed to checkout to complete your purchase.
 
-## Contributors
-
-- [Your Name](https://github.com/your_username)
-- [Contributor 1](https://github.com/contributor1)
-- [Contributor 2](https://github.com/contributor2)
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
